@@ -5,16 +5,39 @@ import TodoList from "./TodoList";
 const FormDiv = styled.div``;
 
 export default class Form extends React.Component {
+  
+constructor () {
+  super();
+  this.state = {
+    todoText: ''
+  }
+}
+
+handleChange = e => {
+  this.setState({
+    todoText: e.target.value
+  })
+}
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.addItem(this.state.todoText)
+  }
+
+
   render() {
     return (
       <FormDiv>
         <h2>Todos:</h2>
-        <TodoList></TodoList>
-        <input type="text" placeholder="Type a thing Todo" />
+        <TodoList todos={this.props.todos} toggleItem={this.props.toggleItem}></TodoList>
+        <input
+          type="text"
+          placeholder="Type a thing Todo"
+          onChange={e => this.handleChange(e)} />
         <button 
-         onClick={() => console.log("Submit clicked!")}>Submit</button>
+         onClick={e => this.handleSubmit(e)}>Submit</button>
         <button
-        onClick={() => console.log("Show/Hide Clicked!")}>Completed Button</button>
+        onClick={console.log("clicked")}>Completed Button</button>
       </FormDiv>
     );
   }
