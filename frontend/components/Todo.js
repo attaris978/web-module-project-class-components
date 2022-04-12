@@ -17,8 +17,11 @@ margin:.7rem;
 }
 &.completed {
     color:rgba(255,10,10,.7);
-    
+  &::after{
+    content:"done!"
+  }  
   }
+
 `
 export default class Todo extends React.Component {
   render() {
