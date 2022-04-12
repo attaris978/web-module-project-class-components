@@ -2,7 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import TodoList from "./TodoList";
 
-const FormDiv = styled.div``;
+const FormDiv = styled.div`
+display:flex;
+flex-flow: column nowrap;
+`;
 
 export default class Form extends React.Component {
   
@@ -41,7 +44,7 @@ handleChange = e => {
         <button 
          onClick={e => this.handleSubmit(e)}>Submit</button>
         <button
-        onClick={() => this.props.clearCompleted()}>Completed Button</button>
+        onClick={() => this.props.clearCompleted()}>Clear Completed</button>
       </FormDiv>
     );
   }

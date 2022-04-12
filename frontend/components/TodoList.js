@@ -1,9 +1,16 @@
 import React from "react";
 import Todo from "./Todo";
+import styled from 'styled-components';
+
+const TodoListDiv = styled.div`
+display:flex;
+flex-flow:column nowrap;
+
+`
 export default class TodoList extends React.Component {
   render() {
     return (
-      <div>
+      <TodoListDiv>
         {this.props.todos.map((todoItem) => {
           return (
             <Todo
@@ -15,7 +22,7 @@ export default class TodoList extends React.Component {
             />
           );
         })}
-      </div>
+      </TodoListDiv>
     );
   }
 }
