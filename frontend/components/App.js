@@ -44,13 +44,20 @@ export default class App extends React.Component {
     console.log("click test");
   };
 
+  clearCompleted = () => {
+    this.setState({
+      todos: this.state.todos.filter((item) => item.completed === false)
+    })
+  }
+
   render() {
     return (
       <AppWrap>
         <Form
           todos={this.state.todos}
           toggleItem={this.toggleItem}
-          addItem={this.addItem} />
+          addItem={this.addItem}
+          clearCompleted={this.clearCompleted} />
       </AppWrap>
     );
   }

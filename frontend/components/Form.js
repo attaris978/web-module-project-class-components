@@ -21,7 +21,10 @@ handleChange = e => {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.addItem(this.state.todoText)
+    this.props.addItem(this.state.todoText);
+    this.setState({
+      todoText: ''
+    })
   }
 
 
@@ -33,11 +36,12 @@ handleChange = e => {
         <input
           type="text"
           placeholder="Type a thing Todo"
+          value={this.state.todoText}
           onChange={e => this.handleChange(e)} />
         <button 
          onClick={e => this.handleSubmit(e)}>Submit</button>
         <button
-        onClick={console.log("clicked")}>Completed Button</button>
+        onClick={() => this.props.clearCompleted()}>Completed Button</button>
       </FormDiv>
     );
   }
